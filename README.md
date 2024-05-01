@@ -1,18 +1,71 @@
-## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+# Projeto de Prática do LabOO Java da DIO
 
-## Folder Structure
+Este é um projeto desenvolvido como parte das práticas do LabOO (Laboratório de Orientação a Objetos) Java da Digital Innovation One.
 
-The workspace contains two folders by default, where:
+## Descrição
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+O objetivo deste projeto é modelar e implementar um componente básico de um iPhone, representando suas funcionalidades como Reprodutor Musical, Aparelho Telefônico e Navegador na Internet.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Funcionalidades do iPhone
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+O iPhone possui as seguintes funcionalidades:
 
-## Dependency Management
+- Reprodutor Musical: Capacidade de reproduzir músicas, pausar e selecionar uma música.
+- Aparelho Telefônico: Capacidade de fazer e atender chamadas, bem como iniciar correio de voz.
+- Navegador na Internet: Capacidade de exibir páginas web, adicionar novas abas e atualizar a página atual.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+
+
+## Autor
+
+Este projeto foi desenvolvido por Edson Sousa.
+ 
+```mermaid
+classDiagram
+    class iPhone {
+        - reprodutorMusical: ReprodutorMusical
+        - aparelhoTelefonico: AparelhoTelefonico
+        - navegadorInternet: NavegadorInternet
+      
+        + tocarMusica()
+        + pausarMusica()
+        + selecionarMusica(musica: Musica)
+        + ligar()
+        + atenderChamada()
+        + iniciarCorreioVoz()
+        + exibirPagina(url: String)
+        + adicionarNovaAba(url: String)
+        + atualizarPagina()
+    }
+    class ReprodutorMusical {
+        + tocar()
+        + pausar()
+        + selecionarMusica(musica: Musica)
+    }
+    class AparelhoTelefonico {
+        + ligar()
+        + atender()
+        + iniciarCorreioVoz()
+    }
+    class NavegadorInternet {
+        + exibirPagina(url: String)
+        + adicionarNovaAba(url: String)
+        + atualizarPagina()
+    }
+    class Musica {
+        - titulo: String
+        - artista: String
+        - duracao: int
+      
+        + getTitulo(): String
+        + getArtista(): String
+        + getDuracao(): int
+    }
+    
+    iPhone --> ReprodutorMusical
+    iPhone --> AparelhoTelefonico
+    iPhone --> NavegadorInternet
+    
+    ReprodutorMusical--> Musica
+```
